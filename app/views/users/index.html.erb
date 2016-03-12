@@ -1,0 +1,19 @@
+<% @page_title = "ユーザ一覧" %>
+<h1><%= @page_title %></h1>
+
+<% if @users.present? %>
+  <table class="list">
+    <tr>
+      <th>ユーザー名</th>
+      <th>チップ</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td style="text-align: right"><%= user.name %></td>
+      <td><%= user.chip %></td>
+    </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>会員情報がありません</p>
+<% end %>
