@@ -56,3 +56,6 @@ bower.json
 # database.yml は除く
 database.yml
 database.yml.org
+
+# vimのバックアップは除く
+*~
