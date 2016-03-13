@@ -2,18 +2,32 @@
 <h1><%= @page_title %></h1>
 
 <% if @users.present? %>
-  <table class="list">
-    <tr>
-      <th>ユーザー名</th>
-      <th>チップ</th>
-    </tr>
-    <% @users.each do |user| %>
-    <tr>
-      <td style="text-align: right"><%= user.name %></td>
-      <td><%= user.chip %></td>
-    </tr>
-    <% end %>
-  </table>
+  <dl>
+    <dt>一覧</dt>
+    <dd>
+      <table class="list" id="jtable">
+        <tr>
+          <th>ユーザー名</th>
+          <th>チップ</th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+          <td style="text-align: right"><%= user.name %></td>
+          <td><%= user.chip %></td>
+        </tr>
+        <% end %>
+      </table>
+    </dd>
+    <dt>テスト2</dt>
+    <dd>
+      2222222222222
+    </dd>
+    <dt>テスト3</dt>
+    <dd>
+      33333333
+    </dd>
+    
+  </dl>
 <% else %>
   <p>会員情報がありません</p>
 <% end %>
