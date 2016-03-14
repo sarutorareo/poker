@@ -45,3 +45,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # 2016/3/14 herokuではPostgresqlで動かす必要があるため、'pg'を追加
+  gem 'pg'
+end
