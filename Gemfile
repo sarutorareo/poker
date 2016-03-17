@@ -50,3 +50,9 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+
+# 2016/3/17 WebSocket
+gem 'websocket-rails'
+gem 'faye-websocket', '0.10.0'
+
