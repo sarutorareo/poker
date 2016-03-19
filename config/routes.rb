@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'chat/index'
 
-  root "top#index"
+  root "chat#index"
   get 'top/index'
 
   resources "users"
