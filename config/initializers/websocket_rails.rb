@@ -29,7 +29,11 @@ WebsocketRails.setup do |config|
   # Will not be used unless standalone or synchronization mode
   # is enabled.
   # config.redis_options = {:host => 'localhost', :port => '6379'}
-  config.redis_options = {:host => 'telescopefish.redistogo.com', :port => '9215', :user => 'redistogo', :password => ENV['POKER_REDIS_PASSWORD']}
+  if Rails.env.production? 
+    config.redis_options = {:host => 'telescopefish.redistogo.com', :port => '9215', :user => 'redistogo', :password => ENV['POKER_REDIS_PASSWORD']}
+  else
+    # config.redis_options = {:host => 'localhost', :port => '6379'}
+  end
 
   # By default, all subscribers in to a channel will be removed
   # when that channel is made private. If you don't wish active
