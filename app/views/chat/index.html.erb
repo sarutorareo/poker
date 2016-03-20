@@ -1,5 +1,4 @@
-  <h1>Chat#index</h1>
-  <p>Find me in app/views/chat/index.html.erb</p>
+<h1>Chat <%= @room_name %></h1>
 
 <!-- チャット表示部分 -->
 
@@ -15,15 +14,17 @@
 
 <script>
 
-  var ws_rails;
+  var ws_dispatcher;
 <% if Rails.env.production? %>
-  ws_rails = new WebSocketRails("peaceful-falls-25438.herokuapp.com/websocket");
+  ws_dispatcher = new WebSocketRails("peaceful-falls-25438.herokuapp.com/websocket");
 <% else %>
-  ws_rails = new WebSocketRails("localhost:3000/websocket");
+  ws_dispatcher = new WebSocketRails("localhost:3000/websocket");
 <% end %>
 
+chanel_dispatcher = ws_dispatcher.subscribe('<%= @room_name %>');
+
   // メッセージ受信時の処理
-  ws_rails.bind("websocket_chat", function(message){
+  chanel_dispatcher.bind("websocket_chat", function(message){
     var message_li = document.createElement("li");
     message_li.textContent = message;
     document.getElementById("chat_area").appendChild(message_li);
@@ -32,7 +33,7 @@
   // メッセージ送信時の処理
   document.getElementById("send").onclick =  function(){
     var comment = document.getElementById("comment").value;
-    ws_rails.trigger("websocket_chat", comment);
+    chanel_dispatcher.trigger("websocket_chat", comment);
   }
 
 </script>

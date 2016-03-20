@@ -48,6 +48,7 @@ end
 group :production do
   # 2016/3/14 herokuではPostgresqlで動かす必要があるため、'pg'を追加
   gem 'pg'
+  # 2016/3/14 herokuで必要があるため、'rails_12factor'を追加
   gem 'rails_12factor'
 end
 
@@ -56,3 +57,7 @@ end
 gem 'websocket-rails'
 gem 'faye-websocket', '0.10.0'
 
+# 2016/3/20 テスト用にfactory girlを追加
+group :test do
+  gem 'factory_girl_rails', '~> 4.4.0'
+end

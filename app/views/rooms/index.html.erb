@@ -1,0 +1,20 @@
+<% @page_title = "ルーム一覧" %>
+<h1><%= @page_title %></h1>
+
+<% if @rooms.present? %>
+  <table class="list" id="jtable">
+    <tr>
+      <th>部屋名</th>
+      <th></th>
+    </tr>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td style="text-align: right">部屋<%= room.no %></td>
+      <td><%= link_to "入室", controller: "chat", action: "index", room_id: room.id %></td>
+    </tr>
+    <% end %>
+  </table>
+  
+<% else %>
+  <p>ルームがありません</p>
+<% end %>
