@@ -61,3 +61,6 @@ gem 'faye-websocket', '0.10.0'
 group :test do
   gem 'factory_girl_rails', '~> 4.4.0'
 end
+
+# 2016/3/20 ページ遷移時にjqueryが動かない場合があるため、以下を追加
+gem 'jquery-turbolinks'
