@@ -13,6 +13,6 @@ WebsocketRails::EventMap.describe do
   # The above will handle an event triggered on the client like `product.new`.
   
   # websocket_chatイベントのマッピング
-  subscribe :websocket_chat, to: WebsocketChatController, with_method: :message_recieve
-
+  subscribe :new_message_at_room, to: WebsocketChatController, with_method: :new_message_at_room
+  subscribe :new_user, to: WebsocketChatController, with_method: :new_user
 end
