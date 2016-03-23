@@ -1,19 +1,26 @@
 $(function(){
-	$('#user_list_box').css('background-color', '#cfc');
+  console.log(window.rails_env);
 
-	user_name = $("#user_name").prop("innerText");
-	room_name = $("#room_name").prop("innerText");
+  $('#user_list_box').css('background-color', '#cfc');
 
-  ws_dispatcher = new WebSocketRails("localhost:3000/websocket");
+  user_name = $("#user_name").prop("innerText");
+  room_name = $("#room_name").prop("innerText");
+
+  if (window.rails_env == "production") {
+    ws_dispatcher = new WebSocketRails("peaceful-falls-25438.herokuapp.com/websocket");
+  }
+  else {
+    ws_dispatcher = new WebSocketRails("localhost:3000/websocket");
+  }
   channel_dispatcher = ws_dispatcher.subscribe(room_name);
 
   ws_dispatcher.trigger("new_user", {room_name: room_name, user_name: user_name});
 
   // メッセージ送信時の処理
   $('#send').click(function(){
-	// room_name = document.getElementById("room_name").innerText;
-	comment = $("#comment").prop("value");
-	ws_dispatcher.trigger("new_message", {room_name: room_name, user_name: user_name, msg_body: comment});
+  // room_name = document.getElementById("room_name").innerText;
+  comment = $("#comment").prop("value");
+  ws_dispatcher.trigger("new_message", {room_name: room_name, user_name: user_name, msg_body: comment});
   });
 
   // メッセージ受信時の処理
@@ -31,7 +38,7 @@ $(function(){
   // ユーザリスト受信時の処理
   channel_dispatcher.bind("cast_user_list", function(user_list){
     if (!$("#user_list_box")) {
-	    return;
+      return;
     }
 
     //削除
@@ -39,8 +46,7 @@ $(function(){
  
     //追加
     $.each(user_list, function(){
-	$("#user_list_box").append ($('<option>') .html(this.user_name).val(this.user_name));
+      $("#user_list_box").append ($('<option>') .html(this.user_name).val(this.user_name));
     });
   });
-
 });
