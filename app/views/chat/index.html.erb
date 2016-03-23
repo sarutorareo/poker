@@ -1,10 +1,6 @@
 <h1>Chat <%= @user_name %>@<%= @room_name %></h1>
 
 <!-- チャット表示部分 -->
-<SELECT size="3" multiple id="user_list_box">
-  <OPTION value="0">0val</OPTION>
-  <OPTION value="1">1val</OPTION>
-</SELECT>
 <ul id="chat_area">
 
 </ul>
@@ -16,3 +12,7 @@
 <input id="comment" type="text">
 <input id="send" type="button" value="send">
 
+<script>
+  var tern_chat = <%= @tern_chat %>
+  console.log("tern_chat = " + tern_chat)
+</script>
