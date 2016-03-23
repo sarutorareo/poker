@@ -25,44 +25,44 @@
   ws_dispatcher = new WebSocketRails("localhost:3000/websocket");
 <% end %>
 
-var room_name = document.getElementById("room_name").innerText;
-var user_name = document.getElementById("user_name").innerText;
-channel_dispatcher = ws_dispatcher.subscribe(room_name);
+// var room_name = document.getElementById("room_name").innerText;
+// var user_name = document.getElementById("user_name").innerText;
+// channel_dispatcher = ws_dispatcher.subscribe(room_name);
 
-ws_dispatcher.trigger("new_user", {room_name: room_name, user_name: user_name});
+// ws_dispatcher.trigger("new_user", {room_name: room_name, user_name: user_name});
 
   // メッセージ送信時の処理
-  document.getElementById("send").onclick =  function(){
-    var comment = document.getElementById("comment").value;
-    ws_dispatcher.trigger("new_message", {room_name: room_name, user_name: user_name, msg_body: comment});
-  }
+//  document.getElementById("send").onclick =  function(){
+//    var comment = document.getElementById("comment").value;
+//    ws_dispatcher.trigger("new_message", {room_name: room_name, user_name: user_name, msg_body: comment});
+//  }
 
-  // 他クライアント切断時の処理
-  ws_dispatcher.bind("bload_cast_change_user_list", function(dummy_hash){
-    ws_dispatcher.trigger("get_user_list", {room_name: room_name});
-  });
 
   // メッセージ受信時の処理
-  channel_dispatcher.bind("cast_new_message", function(message){
-    var message_li = document.createElement("li");
-    message_li.textContent = message.room_name + " | " + message.user_name + " | " + message.msg_body;
-    document.getElementById("chat_area").appendChild(message_li);
-  });
+//  channel_dispatcher.bind("cast_new_message", function(message){
+//    var message_li = document.createElement("li");
+//    message_li.textContent = message.room_name + " | " + message.user_name + " | " + message.msg_body;
+//    document.getElementById("chat_area").appendChild(message_li);
+//  });
 
+  // 他クライアント切断時の処理
+//  ws_dispatcher.bind("bload_cast_change_user_list", function(dummy_hash){
+//    ws_dispatcher.trigger("get_user_list", {room_name: room_name});
+//  });
   // ユーザリスト受信時の処理
-  channel_dispatcher.bind("cast_user_list", function(user_list){
-    var user_lb = document.getElementById("user_list_box");
-    var opt = document.getElementById("user_list_box").options;
-
-    //削除
-    while (user_lb.options.length > 0) {
-      user_lb.options[0] = null;
-    }
- 
-    //追加
-    for (var i = 0; i < user_list.length; i++)  {
-      user_lb.options[user_lb.options.length] = new Option(user_list[i].user_name, user_list[i].user_name);
-    }
-  });
+//  channel_dispatcher.bind("cast_user_list", function(user_list){
+//    var user_lb = document.getElementById("user_list_box");
+//    var opt = document.getElementById("user_list_box").options;
+//
+//    //削除
+//    while (user_lb.options.length > 0) {
+//      user_lb.options[0] = null;
+//    }
+// 
+//    //追加
+//    for (var i = 0; i < user_list.length; i++)  {
+//      user_lb.options[user_lb.options.length] = new Option(user_list[i].user_name, user_list[i].user_name);
+//    }
+//  });
 
 </script>
