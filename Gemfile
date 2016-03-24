@@ -64,3 +64,10 @@ end
 
 # 2016/3/20 ページ遷移時にjqueryが動かない場合があるため、以下を追加
 gem 'jquery-turbolinks'
+
+# 2016/3/24 デバッグ用にrails footnotesを追加
+group :development do
+  gem 'rails-footnotes'
+  gem 'better_errors' # Better Errors本体
+  gem 'binding_of_caller' # Better Errors上でREPLを使用するためのgem
+end

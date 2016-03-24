@@ -35,9 +35,14 @@ $ ->
 
   # メッセージ受信時の処理
   channel_dispatcher.bind 'cast_new_message', (message) ->
-    message_li = document.createElement('li')
-    message_li.textContent = message.room_name + ' | ' + message.user_name + ' | ' + message.msg_body
-    document.getElementById('chat_area').appendChild message_li
+    create_message_li = (message) ->
+      message_li = document.createElement('li')
+      message_li.textContent = message.room_name + ' t ' + message.right_user + ' | ' + message.user_name + ' | ' + message.msg_body
+      message_li
+
+    message_li = create_message_li(message)
+    $('#chat_area').append message_li
+
     return
 
   # 他クライアント切断時の処理
