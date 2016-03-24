@@ -5,8 +5,8 @@ $ ->
   console.log window.rails_env
 
   $('#user_list_box').css 'background-color', '#cfc'
-  user_name = $('#user_name').prop('innerText')
-  room_name = $('#room_name').prop('innerText')
+  user_name = $('#user_name').text()
+  room_name = $('#room_name').text()
 
   ws_dispatcher = undefined
   channel_dispatcher = undefined
@@ -26,7 +26,7 @@ $ ->
   # メッセージ送信時の処理
   $('#send').click ->
     # room_name = document.getElementById("room_name").innerText;
-    comment = $('#comment').prop('value')
+    comment = $('#comment').val()
     ws_dispatcher.trigger 'new_message',
       room_name: room_name
       user_name: user_name
