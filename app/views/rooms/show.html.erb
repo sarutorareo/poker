@@ -1,0 +1,15 @@
+<% @page_title = " room#{"%02d" % @room.no}" %>
+<h1><%= @page_title %></h1>
+room
+
+<!-- チャット表示部分 -->
+<ul id="chat_area">
+
+</ul>
+
+<!-- コメントフォーム -->
+
+<%= label_tag "room_name", @room_name? @room_name: "Room", id: "room_name" %>
+<%= label_tag "user_name", @user_name, id: "user_name" %>
+<input id="comment" type="text">
+<input id="send" type="button" value="send">
