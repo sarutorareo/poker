@@ -59,7 +59,12 @@ class WebsocketChatController < WebsocketRails::BaseController
     users.select {|user| user && user[:room_name] == room_name}
   end
   def get_right_user(room_name)
-    controller_store[room_name].nil? ? "!ANYONE" : controller_store[room_name][:right_user].nil? ? "!ANYONE" : controller_store[room_name][:right_user]
+    users = user_list(room_name)
+    return "!ANYONE" if users.length <= 1
+    return "!ANYONE" if controller_store[room_name].nil? ||  controller_store[room_name][:right_user].nil? 
+    r_user = controller_store[room_name][:right_user]
+    return "!ANYONE" if users.find { |user| user[:user_name] == r_user } == nil
+    return controller_store[room_name][:right_user]
   end
   def is_right_user?(room_name, user_name)
     (get_right_user(room_name) == "!ANYONE") || (get_right_user(room_name) == user_name)
