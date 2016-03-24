@@ -1,6 +1,7 @@
 # WebsocketRails::BaseControllerを継承
 class WebsocketChatController < WebsocketRails::BaseController
   def new_message
+#    binding.pry 
     # クライアントからのメッセージを取得
     recieve_message = message()
     p "new_message"
@@ -16,7 +17,7 @@ class WebsocketChatController < WebsocketRails::BaseController
       return
     end
 
-   next_user = rotate_right_user(room_name, user_name)
+   next_user = rotate_right_user!(room_name, user_name)
    p "next user=" + (next_user.nil? ? "nil" : next_user)
 
    WebsocketRails[room_name].trigger(:cast_new_message, recieve_message.merge({right_user: next_user.nil? ? "" : next_user}))
@@ -56,20 +57,21 @@ class WebsocketChatController < WebsocketRails::BaseController
   def user_list(room_name)
     users = connection_store.collect_all(:users)
     users.select {|user| user && user[:room_name] == room_name}
-    p users.select {|user| user && user[:room_name] == room_name}
   end
   def get_right_user(room_name)
-    p controller_store[room_name]
     controller_store[room_name].nil? ? "!ANYONE" : controller_store[room_name][:right_user].nil? ? "!ANYONE" : controller_store[room_name][:right_user]
   end
   def is_right_user?(room_name, user_name)
     (get_right_user(room_name) == "!ANYONE") || (get_right_user(room_name) == user_name)
   end
-  def rotate_right_user(room_name, user_name)
+  def is_tern_chat?(room_name)
+    room_name == "room01"
+  end
+  def rotate_right_user!(room_name, user_name)
     next_user = nil
     users = user_list(room_name)
 
-    if (users.length >= 2)
+    if (is_tern_chat?(room_name) && (users.length >= 2))
       pos = users.index {|user| user[:user_name] == user_name}
       if (pos.nil?)
         logger.warn("!!WARN pos.nil")

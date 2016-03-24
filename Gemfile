@@ -71,3 +71,11 @@ group :development do
   gem 'better_errors' # Better Errors本体
   gem 'binding_of_caller' # Better Errors上でREPLを使用するためのgem
 end
+
+# 2016/3/24 デバッグ用にpry群を入れる
+group :development, :test do
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer' # スタックをたどれる
+end
