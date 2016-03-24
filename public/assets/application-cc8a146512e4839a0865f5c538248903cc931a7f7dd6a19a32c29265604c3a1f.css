@@ -1,0 +1,152 @@
+@charset "UTF-8";
+/* 全体の枠 */
+/* line 5, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#container {
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 780px;
+}
+
+/* 左の枠（コンテンツを入れる） */
+/* line 12, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#content {
+  float: left;
+  width: 530px;
+  padding: 10px 10px 10px 0;
+}
+
+/* 右の枠（サイドバーを入れる） */
+/* line 19, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#sidebar {
+  float: left;
+  width: 230px;
+  background-color: #e8ffff;
+  padding: 5px;
+  font-size: 86%;
+}
+
+/* ヘッダー */
+/* line 28, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#header {
+  border-top: 4px solid #6bb;
+}
+
+/* フッター */
+/* line 33, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#footer {
+  clear: both;
+  font: 11px Verdana;
+  color: #888;
+  padding: 8px 0;
+  border-top: 4px solid #6bb;
+  text-align: center;
+}
+
+/* メニューバー */
+/* line 43, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div.menubar {
+  padding: 2px;
+  background-color: #333;
+  color: #ccc;
+  font-size: 80%;
+  padding: 8px 16px;
+}
+/* line 50, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div.menubar a {
+  text-decoration: none;
+}
+/* line 51, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div.menubar a:link {
+  color: #ccc;
+}
+/* line 52, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div.menubar a:visited {
+  color: #ccc;
+}
+/* line 53, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div.menubar a:hover {
+  color: #f88;
+  text-decoration: underline;
+}
+/* line 57, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div.menubar span {
+  color: #ff8;
+  font-weight: bold;
+}
+
+/* メインコンテンツ */
+/* line 65, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#content h1 {
+  color: #88c;
+  font-weight: normal;
+  font-size: 150%;
+  margin-bottom: 0.5em;
+}
+/* line 72, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#content h2 {
+  color: #99d;
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ccf;
+}
+/* line 79, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#content p, div#content ul {
+  font-size: 90%;
+  line-height: 1.5;
+}
+
+/* サイドバー */
+/* line 87, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#sidebar h2 {
+  color: #080;
+  font-weight: bold;
+  border-bottom: 1px dotted #080;
+  margin-bottom: 0.5em;
+  font-size: 100%;
+}
+/* line 94, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#sidebar ul {
+  padding-left: 1em;
+  list-style-type: none;
+}
+/* line 98, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#sidebar li {
+  margin-bottom: 0.3em;
+}
+/* line 101, /home/sarutorareo/github/poker/app/assets/stylesheets/common.css.scss */
+div#sidebar p.alert {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+/* line 4, /home/sarutorareo/github/poker/app/assets/stylesheets/users.scss */
+dl {
+  background: #f99;
+}
+
+/* line 7, /home/sarutorareo/github/poker/app/assets/stylesheets/users.scss */
+dt {
+  background: #9f9;
+}
+
+/* line 10, /home/sarutorareo/github/poker/app/assets/stylesheets/users.scss */
+dd {
+  background: #9ff;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
