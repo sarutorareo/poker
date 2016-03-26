@@ -1,0 +1,24 @@
+<% @page_title = "POKERルーム一覧" %>
+<h1><%= @page_title %></h1>
+
+<% if @rooms.present? %>
+  <p>
+  ユーザ名
+  <%= text_field_tag "user_name", params[:user_name] %>
+  </p>
+  <table class="list" id="poker_room_table">
+    <tr>
+      <th>部屋名</th>
+      <th></th>
+    </tr>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td style="text-align: right">部屋<%= "%02d" % room.no %></td>
+      <td><%= button_tag "入室", id: room.no, class: "enter_poker_room_button" %></td>
+    </tr>
+    <% end %>
+  </table>
+  
+<% else %>
+  <p>ルームがありません</p>
+<% end %>

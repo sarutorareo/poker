@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320090426) do
+ActiveRecord::Schema.define(version: 20160326032509) do
+
+  create_table "poker_rooms", force: :cascade do |t|
+    t.integer  "no",         limit: 4,               null: false
+    t.integer  "max_user",   limit: 4,   default: 9, null: false
+    t.string   "pass",       limit: 255
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.integer  "no",         limit: 4,               null: false
