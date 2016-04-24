@@ -1,6 +1,6 @@
 # poker
 
-Ruby on Railsの練習を兼ねたPOKERプロジェクト
+Ruby on Railsの練習を兼ねたPOKERプロジェクトです
 
 heroku url
 https://peaceful-falls-25438.herokuapp.com/ 
