@@ -79,3 +79,14 @@ group :development, :test do
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
 end
+
+# 2016/3/26 テスト用にrspec-railsを入れる
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+# 2016/4/3 コンソールへのオブジェクト出力を見やすくするためHirb導入
+group :development, :test do
+  gem 'hirb'
+  gem 'hirb-unicode'
+end
