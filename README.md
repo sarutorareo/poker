@@ -8,4 +8,4 @@ Ruby on Railsの練習を兼ねたPOKERプロジェクトです
 
 ## history
 2016/5/14 developブランチを作成
-
+2016/6/12 feature-test01ブランチを作成
