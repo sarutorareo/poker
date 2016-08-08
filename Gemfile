@@ -90,3 +90,9 @@ group :development, :test do
   gem 'hirb'
   gem 'hirb-unicode'
 end
+
+# 2016/7/2 spring-commands-rspecを導入
+group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+end
